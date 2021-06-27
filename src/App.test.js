@@ -27,7 +27,9 @@ test('checkbox should stop button from changing color',()=>{
   render(<App/>);
   const colorButton = screen.getByRole('button', {name:"Change to blue"});
   expect(colorButton).toBeEnabled();
-  const enableCheckbox = screen.getByRole('checkbox');
+  const enableCheckbox = screen.getByRole('checkbox', 
+  // where name === label.innerText
+  {name:"Disable Button"});
   expect(enableCheckbox).not.toBeChecked();
   // disable 
   fireEvent.click(enableCheckbox);

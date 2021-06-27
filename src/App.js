@@ -20,9 +20,10 @@ function App() {
         type="checkbox"
         defaultChecked={disabled}
         aria-checked={disabled}
-        name="enable-button-checkbox"
-        id="enable-button-checkbox"
+        name="disable-button-checkbox"
+        id="disable-button-checkbox"
       />
+      <label htmlFor="disable-button-checkbox">Disable Button</label>
     </div>
   );
 }

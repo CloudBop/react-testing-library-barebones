@@ -23,6 +23,21 @@ test("button+checkbox is default initialised ",()=>{
   expect(enableCheckbox).not.toBeChecked();
 })
 
+test('checkbox should stop button from changing color',()=>{
+  render(<App/>);
+  const colorButton = screen.getByRole('button', {name:"Change to blue"});
+  expect(colorButton).toBeEnabled();
+  const enableCheckbox = screen.getByRole('checkbox');
+  expect(enableCheckbox).not.toBeChecked();
+  // 
+  fireEvent.click(enableCheckbox);
+  expect(enableCheckbox).toBeChecked();
+  //
+  fireEvent.click(colorButton);
+  expect(colorButton).toHaveStyle({backgroundColor: 'red'});
+  expect(colorButton.textContent).toBe('Change to blue');
+})
+
 // test("button turns blue onclick",()=>{
 //   render(<App/>);
 //   const colorButton = screen.getByRole('button', {name:"Change to red"})

@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
+import {replaceCamelWithSpaces} from './App';
 
 test("init button has correct background-color",()=>{
   // https://www.w3.org/TR/wai-aria/#role_definitions
@@ -75,7 +76,17 @@ test("disabled button has grey background, returns to blue", ()=>{
   expect(colorBtn).toHaveStyle('background-color: blue')
 })
 
-
+describe('spaces before camel-cse capital letters', ()=> {
+  test('no inner capitals',()=>{
+    expect(replaceCamelWithSpaces('Red')).toBe('Red');
+  })
+  test('one inner capitals',()=>{
+    expect(replaceCamelWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+  })
+  test('two inner capitals',()=>{
+    expect(replaceCamelWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+  })
+})
 // test("button turns blue onclick",()=>{
 //   render(<App/>);
 //   const colorButton = screen.getByRole('button', {name:"Change to red"})

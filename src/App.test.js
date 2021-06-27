@@ -29,13 +29,22 @@ test('checkbox should stop button from changing color',()=>{
   expect(colorButton).toBeEnabled();
   const enableCheckbox = screen.getByRole('checkbox');
   expect(enableCheckbox).not.toBeChecked();
-  // 
+  // disable 
   fireEvent.click(enableCheckbox);
   expect(enableCheckbox).toBeChecked();
-  //
+  // test if is disabled
   fireEvent.click(colorButton);
   expect(colorButton).toHaveStyle({backgroundColor: 'red'});
   expect(colorButton.textContent).toBe('Change to blue');
+
+  // disable 
+  fireEvent.click(enableCheckbox);
+  expect(enableCheckbox).not.toBeChecked();
+
+  // test if is disabled
+  fireEvent.click(colorButton);
+  expect(colorButton).toHaveStyle({backgroundColor: 'blue'});
+  expect(colorButton.textContent).toBe('Change to red');
 })
 
 // test("button turns blue onclick",()=>{

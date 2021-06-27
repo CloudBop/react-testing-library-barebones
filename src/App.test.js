@@ -49,6 +49,19 @@ test('checkbox should stop button from changing color',()=>{
   expect(colorButton.textContent).toBe('Change to red');
 })
 
+test("disabled button has grey background", ()=>{
+  render(<App/>);
+  const cb = screen.getByRole('checkbox', {name:'Disable Button'});
+  const colorBtn = screen.getByRole('button', {name:'Change to blue'});
+  // disable button
+  fireEvent.click(cb);
+  expect(colorBtn).toHaveStyle('background-color: gray')
+  // enable button
+  fireEvent.click(cb);
+  expect(colorBtn).toHaveStyle('background-color: red')
+})
+
+
 // test("button turns blue onclick",()=>{
 //   render(<App/>);
 //   const colorButton = screen.getByRole('button', {name:"Change to red"})

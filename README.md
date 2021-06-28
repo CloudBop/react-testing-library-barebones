@@ -1,3 +1,9 @@
+# React Testing Library Example
+A button that changes color and a checkbox that disables the button. 
+
+- Accessibility first tests using role attribute.
+- Function style testing (users beahviour & user interface), slightly different paradigm than unit-tests.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

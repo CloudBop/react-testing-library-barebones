@@ -2,6 +2,7 @@
 A button that changes color and a checkbox that disables the button. 
 
 - Accessibility first tests using role attribute.
+- TTD style, see commits
 - Function style testing (users beahviour & user interface), slightly different paradigm than unit-tests.
 
 # Getting Started with Create React App
